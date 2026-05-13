@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IWAWWABET</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">IWAWWABET</div>
+      <nav>
+        <button onclick="showGame('slots')">Слоти</button>
+        <button onclick="showGame('rocket')">Ракета</button>
+        <button onclick="showGame('plinko')">Plinko</button>
+      </nav>
+      <div class="balance-container">
+        <div>Баланс: <span id="balance">1000</span> $</div>
+        <div class="bet-container">
+          Ставка: <input type="number" id="bet-amount" value="10" min="1" /> $
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="slots" class="game-section active">
+        <h2>Casino Fruits</h2>
+
+        <div id="super-game-info" class="hidden">
+          <span class="super-text">🔥 СУПЕР ГРА 🔥</span>
+          Спінів: <span id="super-spins-left">0</span> | Множник:
+          <span id="super-multiplier">x0</span>
+        </div>
+
+        <div class="slot-machine-container">
+          <div class="slot-grid" id="slot-grid"></div>
+        </div>
+        <p id="slot-message">Оберіть ставку та крутіть!</p>
+        <button class="action-btn" id="spin-btn" onclick="playSlots()">
+          Крутити
+        </button>
+      </section>
+
+      <section id="rocket" class="game-section">
+        <h2>Ракета</h2>
+        <div class="rocket-container">
+          <div id="rocket-ship">🚀</div>
+          <div id="multiplier-display">1.00x</div>
+        </div>
+        <p id="rocket-message">Готуйтеся до зльоту</p>
+        <div class="controls">
+          <button
+            class="action-btn"
+            id="start-rocket-btn"
+            onclick="startRocket()">
+            Старт
+          </button>
+          <button
+            class="action-btn cashout"
+            id="cashout-btn"
+            onclick="cashOutRocket()"
+            disabled>
+            Забрати
+          </button>
+        </div>
+      </section>
+
+      <section id="plinko" class="game-section">
+        <h2>Падіння Кульки</h2>
+        <div class="plinko-container">
+          <canvas id="plinko-canvas" width="600" height="500"></canvas>
+        </div>
+        <p id="plinko-message">Запустіть кульку через перешкоди</p>
+        <button class="action-btn" id="drop-btn" onclick="playPlinko()">
+          Кинути кульку
+        </button>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

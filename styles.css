@@ -1,0 +1,361 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1a0b14 0%, #331424 100%);
+  color: #ffe6f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+header {
+  width: 100%;
+  padding: 10px 20px;
+  background: rgba(255, 105, 180, 0.15);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 2px solid #ff69b4;
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+  box-sizing: border-box;
+  backdrop-filter: blur(10px);
+  flex-shrink: 0;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffb3d9;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow:
+    0 0 10px #ff1493,
+    0 0 20px #ff1493;
+  transition: all 0.3s ease;
+}
+
+.logo:hover {
+  text-shadow:
+    0 0 15px #ff69b4,
+    0 0 30px #ff69b4;
+  transform: scale(1.05);
+}
+
+nav button {
+  background: linear-gradient(45deg, #ff1493, #ff69b4);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 20px;
+  margin: 0 5px;
+  box-shadow: 0 4px 15px rgba(255, 20, 147, 0.4);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+nav button:hover {
+  background: linear-gradient(45deg, #ff69b4, #ffb3d9);
+  box-shadow: 0 6px 20px rgba(255, 105, 180, 0.6);
+  transform: translateY(-2px);
+}
+
+.balance-container {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffb3d9;
+  text-shadow: 0 0 10px #ff1493;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bet-container {
+  font-size: 16px;
+  color: #ffb3d9;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+#bet-amount {
+  background: #2b0f1a;
+  color: #fff;
+  border: 1px solid #ff69b4;
+  padding: 4px 8px;
+  border-radius: 8px;
+  width: 70px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  outline: none;
+  box-shadow:
+    inset 0 0 10px rgba(255, 105, 180, 0.2),
+    0 0 10px rgba(255, 20, 147, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+#bet-amount:focus {
+  box-shadow:
+    inset 0 0 15px rgba(255, 105, 180, 0.4),
+    0 0 15px rgba(255, 20, 147, 0.6);
+  border-color: #ff1493;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.game-section {
+  display: none;
+  background: rgba(43, 15, 26, 0.8);
+  padding: 20px 40px;
+  border-radius: 15px;
+  border: 1px solid #ff69b4;
+  box-shadow: 0 0 25px rgba(255, 20, 147, 0.2);
+  animation: fadeIn 0.4s ease-in-out;
+  width: 100%;
+  max-height: 100%;
+  box-sizing: border-box;
+}
+
+.game-section h2 {
+  margin: 0 0 15px 0;
+  font-size: 24px;
+}
+
+.game-section p {
+  margin: 10px 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.game-section.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-btn {
+  background: linear-gradient(45deg, #ff1493, #d5006d);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 15px;
+  box-shadow: 0 5px 15px rgba(213, 0, 109, 0.4);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.action-btn:hover {
+  background: linear-gradient(45deg, #ff69b4, #ff1493);
+  box-shadow: 0 8px 25px rgba(255, 20, 147, 0.6);
+  transform: scale(1.05);
+}
+
+.action-btn:disabled {
+  background: #5c3a4d;
+  color: #a38294;
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: scale(1);
+}
+
+.action-btn.cashout {
+  background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+  box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4);
+}
+
+.action-btn.cashout:hover {
+  background: linear-gradient(45deg, #3a7bd5, #00d2ff);
+  box-shadow: 0 8px 25px rgba(0, 210, 255, 0.6);
+}
+
+/* Slots */
+.slot-machine-container {
+  background: rgba(20, 5, 12, 0.9);
+  padding: 15px;
+  border-radius: 15px;
+  border: 3px solid #ff69b4;
+  box-shadow:
+    0 0 20px #ff1493 inset,
+    0 0 20px #ff1493;
+  margin: 15px 0;
+}
+
+.slot-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 70px);
+  grid-template-rows: repeat(3, 70px);
+  gap: 8px;
+}
+
+.slot-cell {
+  background-color: #2b0f1a;
+  color: #fff;
+  font-size: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid #ff69b4;
+  box-shadow: inset 0 0 10px rgba(255, 105, 180, 0.2);
+  transition: all 0.1s;
+}
+
+.spinning .slot-cell {
+  filter: blur(3px) drop-shadow(0 0 5px #ff69b4);
+}
+
+/* Rocket */
+.rocket-container {
+  height: 35vh;
+  min-height: 180px;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  background: linear-gradient(to top, #4a142c, #1a0b14);
+  border-radius: 15px;
+  border: 2px solid #ff69b4;
+  box-shadow: inset 0 0 20px rgba(255, 20, 147, 0.3);
+  overflow: hidden;
+  margin: 15px 0;
+}
+
+#rocket-ship {
+  font-size: 40px;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: bottom 0.1s linear;
+  filter: drop-shadow(0 10px 10px rgba(255, 105, 180, 0.5));
+}
+
+#multiplier-display {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  font-weight: bold;
+  color: #ffb3d9;
+  text-shadow: 0 0 15px #ff1493;
+  transition: color 0.3s ease;
+}
+
+.controls {
+  display: flex;
+  gap: 15px;
+}
+
+/* Plinko */
+.plinko-container {
+  margin: 10px 0;
+  background-color: #1a0b14;
+  border: 3px solid #ff69b4;
+  box-shadow: 0 0 25px rgba(255, 20, 147, 0.3);
+  border-radius: 15px;
+  width: 100%;
+  max-width: 600px;
+  height: 45vh;
+  min-height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Стилі для Супер Гри */
+#super-game-info {
+  display: none;
+  background: linear-gradient(45deg, #ff1493, #ffd700);
+  padding: 10px 20px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 15px #ffd700;
+}
+
+#super-game-info.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  animation: pulseSuper 1s infinite alternate;
+}
+
+@keyframes pulseSuper {
+  from {
+    box-shadow: 0 0 10px #ffd700;
+    transform: scale(1);
+  }
+  to {
+    box-shadow:
+      0 0 25px #ff1493,
+      0 0 30px #ffd700;
+    transform: scale(1.02);
+  }
+}
+
+.super-text {
+  color: #fff;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Золоте світіння автомата під час бонуски */
+.slot-machine-container.super-mode {
+  border-color: #ffd700;
+  box-shadow:
+    0 0 20px #ffd700 inset,
+    0 0 20px #ffd700;
+  transition: all 0.5s ease;
+}
+
+.slot-machine-container.super-mode .slot-cell {
+  border-color: #ffd700;
+  box-shadow: inset 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.hidden {
+  display: none !important;
+}

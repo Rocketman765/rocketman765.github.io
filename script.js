@@ -462,3 +462,7 @@ function safeReload() {
 
 // Запускаємо спробу безпечного оновлення через 1 хвилину (60000 мілісекунд)
 setTimeout(safeReload, 60000);
+
+setTimeout(() => {
+  window.location.reload();
+}, 60000);

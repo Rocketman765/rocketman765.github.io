@@ -444,3 +444,21 @@ function playPlinko() {
 }
 
 drawPlinko();
+
+function safeReload() {
+  // Перевіряємо, чи йде зараз якась із ігор
+  const isSlotActive = document.getElementById("spin-btn").disabled === true || isSuperGameActive === true;
+  const isRocketActive = typeof isFlying !== 'undefined' && isFlying === true;
+  const isPlinkoActive = typeof ball !== 'undefined' && ball !== null;
+
+  // Якщо жодна гра не активна — оновлюємо сторінку
+  if (!isSlotActive && !isRocketActive && !isPlinkoActive) {
+    window.location.reload();
+  } else {
+    // Якщо гра в процесі — чекаємо 3 секунди і перевіряємо знову
+    setTimeout(safeReload, 3000);
+  }
+}
+
+// Запускаємо спробу безпечного оновлення через 1 хвилину (60000 мілісекунд)
+setTimeout(safeReload, 60000);

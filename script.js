@@ -230,7 +230,7 @@ function endSuperGame() {
 }
 // РАКЕТА (КРАШ)
 let rocketInterval;
-let currentMultiplier = 1.0;
+let currentMultiplier = 0.0;
 let isFlying = false;
 
 function startRocket() {
@@ -243,7 +243,7 @@ function startRocket() {
   updateBalance(-activeRocketBet);
 
   isFlying = true;
-  currentMultiplier = 1.0;
+  currentMultiplier = 0.0;
   document.getElementById("start-rocket-btn").disabled = true;
   document.getElementById("cashout-btn").disabled = false;
   document.getElementById("rocket-message").innerText = "Ракета летить!";
